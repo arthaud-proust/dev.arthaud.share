@@ -35,5 +35,5 @@ if (window.location.pathname.startsWith("/choose-a-name")) {
     continueButton.addEventListener('click', saveName)
 
 } else if(username == undefined) {
-    window.location.href="/choose-a-name";
+    window.location.href="/choose-a-name"+room;
 }
