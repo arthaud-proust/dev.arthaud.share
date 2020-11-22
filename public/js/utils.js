@@ -1,6 +1,6 @@
 /* dom control */
 
-const header = document.querySelector('header');
+const menu = document.querySelector('#menu');
 const usersMenu = document.querySelector('#users');
 const chat = document.querySelector('#chat')
 const toggleAudioButton = document.querySelector("#toggle-audio");
@@ -26,12 +26,13 @@ function toggleAudio() {
 }
 
 function toggleMenu() {
-    this.src=`/assets/menu${header.classList.contains('open')?'':'-close'}.svg`
-    header.classList.toggle('open')
+    this.src=`/assets/menu${menu.classList.contains('open')?'':'-close'}.svg`
+    menu.classList.toggle('open')
 }
 
 function toggleUsers() {
     // this.src=`/assets/menu${usersMenu.classList.contains('open')?'':'-close'}.svg`
+    toggleUsersButton.src = `/assets/users${usersMenu.classList.contains('open')?'':'-open'}.svg`;
     usersMenu.classList.toggle('open')
 }
 

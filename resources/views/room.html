@@ -4,17 +4,19 @@
         <meta charset="utf-8">
         <title>Display Webcam Stream</title>
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
-        <link rel="stylesheet" href="/css/styles.css">
+        <script>
+            try{var link=document.createElement('link');link.rel='stylesheet';if(window.screen.width < 768) {link.href="/css/mobile.css";} else {link.href="/css/large.css";}document.getElementsByTagName('head')[0].appendChild(link);link.addEventListener('load', function () {document.getElementById('app').setAttribute('class', '');})}catch(e) {document.getElementById('app').setAttribute('class', '')}
+        </script>    
         <script src="/js/socket.io.min.js"></script>
     </head>
  
     <body>
-        <header>
+        <div id="menu">
             <img id="toggle-menu" src="/assets/menu.svg">
             <div class="menu-items">
                 <span id="leave-session">Leave room</span>
             </div>
-        </header>
+        </div>
         <div id="users">
             <img id="toggle-users" src="/assets/users.svg">
             <div id="users-list"></div>

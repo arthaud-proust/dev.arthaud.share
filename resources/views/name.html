@@ -4,20 +4,26 @@
         <meta charset="utf-8">
         <title>Choose a name</title>
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
-        <link rel="stylesheet" href="/css/styles.css">
+        <script>
+            try{var link=document.createElement('link');link.rel='stylesheet';if(window.screen.width < 768) {link.href="/css/mobile.css";} else {link.href="/css/large.css";}document.getElementsByTagName('head')[0].appendChild(link);link.addEventListener('load', function () {document.getElementById('app').setAttribute('class', '');})}catch(e) {document.getElementById('app').setAttribute('class', '')}
+        </script>    
         <script src="/js/socket.io.min.js"></script>
     </head>
  
     <body>
+        <div class="hero min background">
+            <img class="hero-img" src="/assets/undraw_video_call.svg">
+        </div>
         <div class="container index">
-            <h1>Join the room <span id="room-code"></span></h1>
-            <span id="users-count"></span>
+            <h1>Join the room <span id="room-code"></span></h1>        
             <form action="/" method="POST">
                 <label>Choose a name</label>
                 <input type="text" id="name" name="name" placeholder="Sarah Connor" autocomplete="off">
                 <span id="info-name"></span>
                 <input type="button" id="continue" name="continue" value="Continue">
             </form>
+            <h5 id="users-count"></h5>
+
         </div>
         <script src="/js/base.js"></script>
         <script src="/js/name.js"></script>

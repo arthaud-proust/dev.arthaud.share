@@ -9,10 +9,6 @@ const server = http.createServer(app);
 const io = require("socket.io")(server);
 const roomManager = new (require('./resources/js/roomManager'))();
 
-roomManager.create('TEST1');
-roomManager.create('TEST2');
-roomManager.rooms['TEST1'].adminCode = 'ADMIN-CODE';
-
 // support request
 app.use(bodyParser.json());                         // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // to support URL-encoded bodies
@@ -33,4 +29,4 @@ require('./resources/js/ioController')(io, roomManager);
 
 io.sockets.on("error", e => console.log(e));
 const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => console.log(`Server is running on port ${process.env.port || 80}`));
+server.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

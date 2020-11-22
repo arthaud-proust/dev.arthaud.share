@@ -66,10 +66,10 @@ module.exports = function(io, roomManager) {
                 type:'annoucement', 
                 content:`
                     <h1>Hi there!</h1>
-                    <h3>You are the administrator of this room, but how people can join you?</h3>
+                    <h3>How can you invite people to join you?</h3>
                     <p>By sharing this link: <code>share.arthaud.dev/room/${socket.room}</code></p>
-                    <span style="color:#9c3d3d">But don't share the link of the actual page, it's the admin page.</span>
-                    <p>If somebody ask you the code of the room, it's <code>${socket.room}</code></p>
+                    <p>Or by giving them the code of the room: <code>${socket.room}</code></p>
+                    <span style="color:#9c3d3d">Note for admin: don't share the link of your actual page, it's the admin page.</span>
                     `
                 });
         });
