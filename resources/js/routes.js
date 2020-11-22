@@ -1,12 +1,11 @@
-const path = require('path')
-const fs = require('fs');
-const utils = require('./utils');
+const path = require('path');
+// const utils = require('./utils');
 
 module.exports = function(router, roomManager) {
 
     // middleware that is specific to this router
     router.use(function timeLog(req, res, next) {
-        console.log((new Date()).toLocaleTimeString('fr-FR', {minute: '2-digit', hour: '2-digit', second:'2-digit'})+': '+req.path);
+        // console.log((new Date()).toLocaleTimeString('fr-FR', {minute: '2-digit', hour: '2-digit', second:'2-digit'})+': '+req.path);
         // console.log(req.path);
         next();
     });
@@ -75,7 +74,7 @@ module.exports = function(router, roomManager) {
         res.send(roomManager.getRoom(req.params.code).json);
     });
 
-    router.get('/no-signal', function(req, res) {
-        utils.sendNoSignalStream(req, res);
-    });
+    // router.get('/no-signal', function(req, res) {
+    //     utils.sendNoSignalStream(req, res);
+    // });
 };
