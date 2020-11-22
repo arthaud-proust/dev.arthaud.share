@@ -32,4 +32,4 @@ require('./resources/js/ioController')(io, roomManager);
 // app.listen(process.env.port || 80);
 
 io.sockets.on("error", e => console.log(e));
-server.listen(process.env.port || 80, 'localhost', 34, () => console.log(`Server is running on port ${process.env.port || 80}`));
+server.listen(process.env.port || 80, () => console.log(`Server is running on port ${process.env.port || 80}`));
