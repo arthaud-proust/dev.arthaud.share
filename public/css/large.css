@@ -30,6 +30,18 @@ h1 {
     display: block;
     color: #f89345;
 }
+h1.title {
+    margin-top: 0;
+    font-size: 6rem;
+}
+h1.title::after {
+    content: 'By Arthaud Proust';
+    display: block;
+    top: 0;
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: white;
+}
 
 .hero {
     height: 60vh;

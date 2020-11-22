@@ -15,7 +15,11 @@ if (window.location.pathname.startsWith("/choose-a-name")) {
         if(/\S/gm.test(uName)) {
             localStorage.setItem('share.username', uName);
             console.log(uName);
-            window.location.href='/room/'+room;
+            if(adminCode) {
+            window.location.href=`/admin/${room}/${adminCode}`;
+            } else {
+                window.location.href='/room/'+room;
+            }
         }
     }
 
@@ -33,7 +37,8 @@ if (window.location.pathname.startsWith("/choose-a-name")) {
         }
     })
     continueButton.addEventListener('click', saveName)
-
+} else if(username == undefined && adminCode) {
+    window.location.href=`/choose-a-name/${room}/${adminCode}`;
 } else if(username == undefined) {
     window.location.href="/choose-a-name/"+room;
 }

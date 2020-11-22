@@ -8,10 +8,12 @@ const toggleMenuButton = document.querySelector("#toggle-menu");
 const toggleUsersButton = document.querySelector("#toggle-users");
 const toggleChatButton = document.querySelector("#toggle-chat");
 
+
 if(toggleAudioButton) toggleAudioButton.addEventListener("click", toggleAudio);
 if(toggleMenuButton) toggleMenuButton.addEventListener("click", toggleMenu);
 if(toggleUsersButton) toggleUsersButton.addEventListener("click", toggleUsers);
 if(toggleChatButton) toggleChatButton.addEventListener("click", toggleChat);
+
 
 function toggleAudio() {
     if(videoElement.muted) {

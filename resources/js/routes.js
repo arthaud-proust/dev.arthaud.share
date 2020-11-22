@@ -18,6 +18,10 @@ module.exports = function(router, roomManager) {
         res.sendFile(path.join(__dirname, '/../views/name.html'));
     });
 
+    router.get('/choose-a-name/:room/:adminCode', function(req, res) {
+        res.sendFile(path.join(__dirname, '/../views/adminName.html'));
+    });
+
     router.get('/message/:room', function(req, res) {
         res.sendFile(path.join(__dirname, '/../views/message.html'));
     });
@@ -74,7 +78,8 @@ module.exports = function(router, roomManager) {
         res.send(roomManager.getRoom(req.params.code).json);
     });
 
-    // router.get('/no-signal', function(req, res) {
-    //     utils.sendNoSignalStream(req, res);
-    // });
+
+    router.get('/:error', function(req, res) {
+        res.sendFile(path.join(__dirname, `/../views/${req.params.error}.html`));
+    });
 };
