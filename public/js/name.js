@@ -10,23 +10,27 @@ if (window.location.pathname.startsWith("/choose-a-name")) {
     let canContinue = false;
 
     function saveName() {
-        if(!canContinue) return
         let uName = name.value.trimLeft()
         if(/\S/gm.test(uName)) {
+            if(!canContinue) return
             localStorage.setItem('share.username', uName);
             console.log(uName);
             if(adminCode) {
-            window.location.href=`/admin/${room}/${adminCode}`;
+                window.location.href=`/admin/${room}/${adminCode}`;
             } else {
                 window.location.href='/room/'+room;
             }
+        } else {
+            console.log('e')
+            infoName.innerHTML = 'Please provide a name';
+            infoName.style.color = '#9c3d3d';
         }
     }
 
     socket.on('canTakeUsername', function(can) {
         canContinue = can
         infoName.innerHTML = can?'Username available':'Username unavailable';
-        infoName.style.color = can?'green':'red';
+        infoName.style.color = can?'#3d9c44':'#9c3d3d';
     })
 
     name.addEventListener("keyup", function(e) {

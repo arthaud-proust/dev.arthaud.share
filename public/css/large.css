@@ -198,6 +198,20 @@ main {
     margin: 0px auto;
 }
 
+
+#homeLink {
+    display: block;
+    z-index: 1000;
+    text-decoration: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 30px 40px;
+    color:#eff0ef;
+    mix-blend-mode: difference;
+    font-weight: 100;
+}
+
 .container.index {
     font-size: 2rem;
     flex: 1 1 300px;
@@ -242,11 +256,11 @@ main {
 }
 .container.index form { 
     font-size: 1.6rem;
-    margin:  30px 60px;
+    margin:  30px 70px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: stretch;
+    align-items: flex-start;
 }
 .container.index form label {
     margin-bottom: 10px;
@@ -266,6 +280,8 @@ main {
     cursor: pointer;
     background: #f89345;
     color: white;
+    align-self: flex-end;
+    padding: 10px 25px;
 }
 
 

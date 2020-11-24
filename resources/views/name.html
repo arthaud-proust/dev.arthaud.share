@@ -5,20 +5,40 @@
         <title>Choose a name</title>
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
         <script>
-            try{var link=document.createElement('link');link.rel='stylesheet';if(window.screen.width < 768) {link.href="/css/mobile.css";} else {link.href="/css/large.css";}document.getElementsByTagName('head')[0].appendChild(link);link.addEventListener('load', function () {document.getElementById('app').setAttribute('class', '');})}catch(e) {document.getElementById('app').setAttribute('class', '')}
-        </script>    
+            try{var link=document.createElement('link');link.rel='stylesheet';if(window.screen.width < 768) {link.href="/css/mobile.css";} else {link.href="/css/large.css";}document.getElementsByTagName('head')[0].appendChild(link);link.addEventListener('load', function () {document.querySelector('body').setAttribute('class', '');})}catch(e) {document.querySelector('body').setAttribute('class', '')}
+        </script>   
         <script src="/js/socket.io.min.js"></script>
+        <style>
+            body.loading::before {
+                font-family: Arial, Helvetica, sans-serif;
+                z-index: 2000;
+                font-size: 3rem;
+                content: 'Share things';
+                background: #121215;
+                color: #f89345;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                width: 100vw;
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                justify-content: center;
+            }
+        </style>
     </head>
  
-    <body>
+    <body class="loading">
+        <a id="homeLink" href="/">Home</a>
         <div class="hero min background">
             <img class="hero-img" src="/assets/undraw_video_call.svg">
         </div>
         <div class="container index">
-            <h1>Join the room <span id="room-code"></span></h1>        
+            <h1>Join room <span id="room-code"></span></h1>        
             <form action="/" method="POST">
                 <label>Choose a name</label>
-                <input type="text" id="name" name="name" placeholder="Sarah Connor" autocomplete="off">
+                <input type="text" id="name" name="name" placeholder="Ex: Sarah Connor" autocomplete="off">
                 <span id="info-name"></span>
                 <input type="button" id="continue" name="continue" value="Continue">
             </form>

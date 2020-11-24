@@ -5,11 +5,31 @@
         <title>403, Wrong code - Share things.</title>
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
         <script>
-            try{var link=document.createElement('link');link.rel='stylesheet';if(window.screen.width < 768) {link.href="/css/mobile.css";} else {link.href="/css/large.css";}document.getElementsByTagName('head')[0].appendChild(link);link.addEventListener('load', function () {document.getElementById('app').setAttribute('class', '');})}catch(e) {document.getElementById('app').setAttribute('class', '')}
+            try{var link=document.createElement('link');link.rel='stylesheet';if(window.screen.width < 768) {link.href="/css/mobile.css";} else {link.href="/css/large.css";}document.getElementsByTagName('head')[0].appendChild(link);link.addEventListener('load', function () {document.querySelector('body').setAttribute('class', '');})}catch(e) {document.querySelector('body').setAttribute('class', '')}
         </script>   
+        <style>
+            body.loading::before {
+                font-family: Arial, Helvetica, sans-serif;
+                z-index: 2000;
+                font-size: 3rem;
+                content: 'Share things';
+                background: #121215;
+                color: #f89345;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                width: 100vw;
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                justify-content: center;
+            }
+        </style>
     </head>
  
-    <body>
+    <body class="loading">
+        <a id="homeLink" href="/">Home</a>
         <div class="hero background">
             <img class="hero-img" src="/assets/undraw_secure.svg">
         </div>
@@ -22,13 +42,13 @@
             <h2>Want to share?</h2>
             <form action="/join" method="POST">
                 <label>Join a room</label>
-                <input type="text" name="code" placeholder="Code" maxlength="5">
+                <input type="text" name="code" placeholder="5 caracters code" maxlength="5">
                 <input type="submit" id="join" name="join" value="Join">
             </form>
-    
+
             <form action="/create" method="POST">
-                <label>Create a room</label>
-                <input type="text" name="code" placeholder="Code (optionnal)" maxlength="5">
+                <label>Create your room</label>
+                <input type="text" id="createCode" name="code" placeholder="It can be empty" maxlength="5">
                 <input type="submit" id="create" name="create" value="Create">
             </form>
         </div>
@@ -45,7 +65,5 @@
             <h2>By Arthaud Proust</h2>
         </div>
     </body>
-    <script>
-        const codeRoom = document.querySelector('input[name="code"]');if(codeRoom) codeRoom.addEventListener("keyup", function () {this.value = this.value.toUpperCase();});
-    </script>
+    <script>const codeRoom = document.querySelectorAll('input[name="code"]');const upper = function(e) {e.target.value = e.target.value.toUpperCase();};for(i=0 ; i<codeRoom.length ; i++){codeRoom[i].addEventListener("keyup", upper);}if(document.querySelector('#createCode'))document.querySelector('#createCode').value = Array(5).fill('-').map(()=>'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'.charAt(Math.floor(Math.random()*36))).join('');</script>
 </html>
