@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const router = express.Router()
 const bodyParser = require('body-parser')
+const cors = require('cors');
 require('dotenv').config();
 
 
@@ -16,7 +17,7 @@ app.use(bodyParser.json());                         // to support JSON-encoded b
 app.use(bodyParser.urlencoded({ extended: true })); // to support URL-encoded bodies
 app.use(express.json());                            // to support JSON-encoded bodies
 app.use(express.urlencoded());                      // to support URL-encoded bodies
-
+app.use(cors());
 //add the router folders
 app.use(express.static(__dirname + '/public'));             // Store all assets, js and css files in public folder.
 app.use(express.static(__dirname + '/resources/views'));    // Store all HTML files in view folder.
