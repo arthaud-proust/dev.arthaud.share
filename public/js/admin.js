@@ -121,8 +121,9 @@ function getStream(muteMic = false) {
         audio: { deviceId: audioSource ? { exact: audioSource } : undefined },
         video: { 
             deviceId: videoSource ? { exact: videoSource } : undefined ,
-            width: { ideal: 4096 },
-            height: { ideal: 2160 }
+            // width: { ideal: 4096 }, height: { ideal: 2160 }
+            // width: { ideal: 4096 }, height: { ideal: 2160 },
+            width: { ideal: 1280 }, height: { ideal: 1024 },
         }
     };
     return navigator.mediaDevices
